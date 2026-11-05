@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accès refusé</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="auth-body">
+
+<main class="auth-card denied-card">
+    <div class="denied-code">403</div>
+    <h1>Accès refusé</h1>
+    <p class="subtitle">
+        Votre compte <strong sec:authentication="name">utilisateur</strong>
+        ne dispose pas des autorisations nécessaires pour accéder à cette page.
+    </p>
+
+    <div class="actions">
+        <a class="btn-primary" th:href="@{/home}">Retour à l'accueil</a>
+        <form th:action="@{/logout}" method="post" class="inline-form">
+            <button type="submit" class="btn-secondary">Se déconnecter</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
